@@ -1,0 +1,215 @@
+<div class="wrapper">
+
+<app-side-bar></app-side-bar>
+<app-top-header></app-top-header>
+
+
+    
+    <!-- start page content wrapper-->
+    <div class="page-content-wrapper">
+      <!-- start page content-->
+     <div class="page-content">
+
+         <!--start breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+          <div class="breadcrumb-title pe-3">Contrat</div>
+          <div class="ps-3">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-0 p-0 align-items-center">
+                <li class="breadcrumb-item"><a href="/dashbord"><ion-icon name="home-outline"></ion-icon></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Lists</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="ms-auto">
+            <div class="btn-group">
+              <button type="button" class="btn btn-outline-primary">Settings</button>
+              <button type="button" class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
+                <a class="dropdown-item" href="javascript:;">Another action</a>
+                <a class="dropdown-item" href="javascript:;">Something else here</a>
+                <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end breadcrumb-->
+
+
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+               <h5 class="mb-0">contrats Details</h5>
+
+
+               <form class="ms-auto position-relative" (submit)="searchContrat()">
+                <div class="position-absolute top-50 translate-middle-y search-icon px-3"><ion-icon name="search-sharp"></ion-icon></div>
+                <input class="form-control ps-5" type="text" placeholder="Search" [(ngModel)]="searchTerm" name="searchTerm">
+              </form>
+              
+              
+            </div>
+            <div class="table-responsive mt-3">
+
+
+
+              <table class="table align-middle">
+                <thead class="table-secondary">
+                  <tr>
+                    <th>Compagnie d'assurance</th>
+                    <th>Type d'assurance</th>
+                    <th>Nom de l'assuré</th>
+                    <th>Numéro de souscription</th>
+                    <th>Services</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let contrat of contrats; let i = index">
+                    <td>
+                      <div class="d-flex align-items-center gap-3 cursor-pointer">
+                        <div class="">
+                          <p class="mb-0">{{ contrat.compagnieAssurance }}</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>{{ contrat.typeAssurance }}</td>
+                    <td>{{ contrat.nomAssure }}</td>
+                    <td>{{ contrat.numeroSouscription }}</td>
+                    <td>{{ contrat.services }}</td>
+                    <td>
+                      <div class="table-actions d-flex align-items-center gap-3 fs-6">
+                        <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Views" aria-label="Views"><i class="bi bi-eye-fill"></i></a>
+                        <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title=""  aria-label="Edit" [routerLink]="['/update', contrat.id]"><i class="bi bi-pencil-fill"></i></a>
+                        <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete" (click)="deleteContrat(contrat.id)"><i class="bi bi-trash-fill"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+
+
+
+
+            </div>
+
+          </div>
+          <a href="/add" class="btn btn-outline-primary">Add Contrat</a>
+
+        </div>
+
+
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+               <h5 class="mb-0">Order Table</h5>
+                <form class="ms-auto position-relative">
+                  <div class="position-absolute top-50 translate-middle-y search-icon px-3"><ion-icon name="search-sharp"></ion-icon></div>
+                  <input class="form-control ps-5" type="text" placeholder="search">
+                </form>
+            </div>
+            <div class="table-responsive mt-3">
+              <table class="table align-middle mb-0">
+                <thead class="table-light">
+                 <tr>
+                   <th>Product</th>
+                   <th>Photo</th>
+                   <th>Product ID</th>
+                   <th>Status</th>
+                   <th>Amount</th>
+                   <th>Date</th>
+                   <th>Shipping</th>
+                 </tr>
+                 </thead>
+                 <tbody><tr>
+                  <td>Sport Shoes</td>
+                  <td><img src="https://via.placeholder.com/400X300/212529/fff" class="product-img-2" alt="product img"></td>
+                  <td>#9405822</td>
+                  <td><span class="badge bg-light-success text-success w-100">Paid</span></td>
+                  <td>$1250.00</td>
+                  <td>03 Feb 2020</td>
+                  <td><div class="progress" style="height: 5px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
+                    </div>
+                  </td>
+                 </tr>
+        
+                 <tr>
+                  <td>Man Headcap</td>
+                  <td><img src="https://via.placeholder.com/400X300/212529/fff" class="product-img-2" alt="product img"></td>
+                  <td>#8304620</td>
+                  <td><span class="badge bg-light-warning text-warning w-100">Pending</span></td>
+                  <td>$1500.00</td>
+                  <td>05 Feb 2020</td>
+                  <td><div class="progress" style="height: 5px;">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%"></div>
+                    </div></td>
+                 </tr>
+        
+                 <tr>
+                  <td>Sunglass</td>
+                  <td><img src="https://via.placeholder.com/400X300/212529/fff" class="product-img-2" alt="product img"></td>
+                  <td>#4736890</td>
+                  <td><span class="badge bg-light-danger text-danger w-100">Failed</span></td>
+                  <td>$1400.00</td>
+                  <td>06 Feb 2020</td>
+                  <td><div class="progress" style="height: 5px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 70%"></div>
+                    </div></td>
+                 </tr>
+        
+                 <tr>
+                  <td>Shirt Formal</td>
+                  <td><img src="https://via.placeholder.com/400X300/212529/fff" class="product-img-2" alt="product img"></td>
+                  <td>#8543765</td>
+                  <td><span class="badge bg-light-success text-success w-100">Paid</span></td>
+                  <td>$1200.00</td>
+                  <td>14 Feb 2020</td>
+                  <td><div class="progress" style="height: 5px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
+                    </div></td>
+                 </tr>
+                 <tr>
+                  <td>Black Coat Pant</td>
+                  <td><img src="https://via.placeholder.com/400X300/212529/fff" class="product-img-2" alt="product img"></td>
+                  <td>#9629240</td>
+                  <td><span class="badge bg-light-warning text-warning w-100">Pending</span></td>
+                  <td>$1500.00</td>
+                  <td>18 Feb 2020</td>
+                  <td><div class="progress" style="height: 5px;">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%"></div>
+                    </div></td>
+                 </tr>
+                 <tr>
+                  <td>Heals</td>
+                  <td><img src="https://via.placeholder.com/400X300/212529/fff" class="product-img-2" alt="product img"></td>
+                  <td>#8506790</td>
+                  <td><span class="badge bg-light-danger text-danger w-100">Failed</span></td>
+                  <td>$1800.00</td>
+                  <td>21 Feb 2020</td>
+                  <td><div class="progress" style="height: 5px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 40%"></div>
+                    </div></td>
+                 </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+      <!-- end page content-->
+     </div>
+
+
+
+
+     <app-footer></app-footer>
+
+</div>

@@ -1,0 +1,232 @@
+<div class="wrapper">
+
+  <app-side-bar></app-side-bar>
+  <app-top-header></app-top-header>
+
+
+  <div class="page-content-wrapper">
+    <!-- start page content-->
+   <div class="page-content">
+
+       <!--start breadcrumb-->
+      <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+        <div class="breadcrumb-title pe-3">Forms</div>
+        <div class="ps-3">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0 align-items-center">
+              <li class="breadcrumb-item"><a href="javascript:;"><ion-icon name="home-outline"></ion-icon></a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Validations</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="ms-auto">
+          <div class="btn-group">
+            <button type="button" class="btn btn-outline-primary">Settings</button>
+            <button type="button" class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
+              <a class="dropdown-item" href="javascript:;">Another action</a>
+              <a class="dropdown-item" href="javascript:;">Something else here</a>
+              <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end breadcrumb-->
+
+
+      <div class="row">
+        <div class="col-xl-12 mx-auto">
+          <h6 class="mb-0 text-uppercase">Basic Validation</h6>
+          <hr/>
+          <div class="card">
+            <div class="card-body">
+              <div class="p-4 border rounded">
+
+
+
+
+
+                <form class="row g-3 needs-validation" novalidate (ngSubmit)="submitForm()" #contractForm="ngForm">
+                  <div class="col-md-4">
+                    <label for="compagnieAssurance" class="form-label">Compagnie d'assurance</label>
+                    <select id="compagnieAssurance" name="compagnieAssurance" [(ngModel)]="contrat.compagnieAssurance" class="form-select" required>
+                      <option value="" disabled selected>Choose...</option>
+                      <option value="GAT">GAT</option>
+                      <option value="COMAR">COMAR</option>
+                      <option value="HAYETT">HAYETT</option>
+                      <option value="AMI">AMI</option>
+                      <option value="ASTREE">ASTREE</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a compagnie d'assurance.</div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <label>Type de l'assurance:</label>
+                    <div *ngFor="let type of typesAssurance">
+                      <input type="checkbox" id="{{ type }}" name="typeAssurance" (change)="toggleType(type)" [checked]="isSelected(type)" required>
+                      <label for="{{ type }}">{{ type }}</label>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <label for="nomAssure" class="form-label">Nom de l'assuré</label>
+                    <input type="text" id="nomAssure" name="nomAssure" [(ngModel)]="contrat.nomAssure" class="form-control" required>
+                    <div class="invalid-feedback">Please provide a nom de l'assuré.</div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <label for="numeroSouscription" class="form-label">Numéro de souscription</label>
+                    <input type="number" id="numeroSouscription" name="numeroSouscription" [(ngModel)]="contrat.numeroSouscription" class="form-control" required>
+                    <div class="invalid-feedback">Please provide a numéro de souscription.</div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <label for="beneficiaire1" class="form-label">Bénéficiaire 1</label>
+                    <select id="beneficiaire1" name="beneficiaire1" [(ngModel)]="contrat.beneficiaire1" class="form-select" required>
+                      <option value="" disabled selected>Choose...</option>
+                      <option value="Epoux">Epoux</option>
+                      <option value="Fils">Fils</option>
+                      <option value="Parents">Parents</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a bénéficiaire 1.</div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <label for="region" class="form-label">Région</label>
+                    <select id="region" name="region" [(ngModel)]="contrat.region" class="form-select" required>
+                      <option value="" disabled selected>Choose...</option>
+                      <option value="Ariana">Ariana</option>
+                      <option value="Beja">Béja</option>
+                      <option value="Ben Arous">Ben Arous</option>
+                      <option value="Bizerte">Bizerte</option>
+                      <option value="Gabes">Gabès</option>
+                      <option value="Gafsa">Gafsa</option>
+                      <option value="Jendouba">Jendouba</option>
+                      <option value="Kairouan">Kairouan</option>
+                      <option value="Kasserine">Kasserine</option>
+                      <option value="Kebili">Kebili</option>
+                      <option value="Kef">Le Kef</option>
+                      <option value="Mahdia">Mahdia</option>
+                      <option value="Manouba">La Manouba</option>
+                      <option value="Medenine">Médenine</option>
+                      <option value="Monastir">Monastir</option>
+                      <option value="Nabeul">Nabeul</option>
+                      <option value="Sfax">Sfax</option>
+                      <option value="Sidi Bouzid">Sidi Bouzid</option>
+                      <option value="Siliana">Siliana</option>
+                      <option value="Sousse">Sousse</option>
+                      <option value="Tataouine">Tataouine</option>
+                      <option value="Tozeur">Tozeur</option>
+                      <option value="Tunis">Tunis</option>
+                      <option value="Zaghouan">Zaghouan</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a région.</div>
+                  </div>
+                  
+                  <label>Services:</label>
+                  <div *ngIf="isSelected('ROUTIERE')">
+                    <input type="checkbox" id="remorquage" name="remorquage" [(ngModel)]="remorquage">
+                    <label for="remorquage">Remorquage</label>
+                    <input type="checkbox" id="expertise" name="expertise" [(ngModel)]="expertise">
+                    <label for="expertise">Expertise</label>
+                    <input type="checkbox" id="reparation" name="reparation" [(ngModel)]="reparation">
+                    <label for="reparation">Réparation</label>
+                  </div>
+                
+                
+                  <div *ngIf="isSelected('Domiciliaire')">
+                    <input type="checkbox" id="plomberie" name="plomberie" [(ngModel)]="plomberie">
+                    <label for="plomberie">Plomberie</label>
+                    <input type="checkbox" id="serrurier" name="serrurier" [(ngModel)]="serrurier">
+                    <label for="serrurier">Serrurier</label>
+                    <input type="checkbox" id="vitrier" name="vitrier" [(ngModel)]="vitrier">
+                    <label for="vitrier">Vitrier</label>
+                    <input type="checkbox" id="electrien" name="electrien" [(ngModel)]="electrien">
+                    <label for="electrien">Électricien</label>
+                  </div>
+                  
+                  <div *ngIf="isSelected('Médicale')">
+                    <input type="checkbox" id="infirmier" name="infirmier" [(ngModel)]="infirmier">
+                    <label for="infirmier">Infirmier</label>
+                    <input type="checkbox" id="laboratoire" name="laboratoire" [(ngModel)]="laboratoire">
+                    <label for="laboratoire">Technicien de laboratoire et d'analyse</label>
+                    <input type="checkbox" id="kine" name="kine" [(ngModel)]="kine">
+                    <label for="kine">Technicien de kiné</label>
+                    <input type="checkbox" id="secondAvis" name="secondAvis" [(ngModel)]="secondAvis">
+                    <label for="secondAvis">Second avis médical</label>
+                  </div>
+                  
+                  <div *ngIf="isSelected('Voyage')">
+                    <input type="checkbox" id="rapatriement" name="rapatriement" [(ngModel)]="rapatriement">
+                    <label for="rapatriement">Rapatriement sanitaire</label>
+                    <input type="checkbox" id="evasan" name="evasan" [(ngModel)]="evasan">
+                    <label for="evasan">Evasan</label>
+                    <input type="checkbox" id="retourDomicile" name="retourDomicile" [(ngModel)]="retourDomicile">
+                    <label for="retourDomicile">Retour à domicile</label>
+                    <input type="checkbox" id="billetterie" name="billetterie" [(ngModel)]="billetterie">
+                    <label for="billetterie">Billetterie</label>
+                    <input type="checkbox" id="hospitalisation" name="hospitalisation" [(ngModel)]="hospitalisation">
+                    <label for="hospitalisation">Hospitalisation</label>
+                  </div>
+                  
+                  <div *ngIf="isSelected('Juridique')">
+                    <input type="checkbox" id="avocat" name="avocat" [(ngModel)]="avocat">
+                    <label for="avocat">Avocat</label>
+                  </div>
+                  
+                  
+                  
+                  <div class="col-md-4">
+                    <label for="plafond" class="form-label">Plafond</label>
+                    <input type="text" id="plafond" name="plafond" [(ngModel)]="contrat.plafond" class="form-control" required>
+                    <div class="invalid-feedback">Please provide a plafond.</div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <label for="nombreDeclarations" class="form-label">Nombre de déclaration</label>
+                    <input type="text" id="nombreDeclarations" name="nombreDeclarations" [(ngModel)]="contrat.nombreDeclarations" class="form-control" required>
+                    <div class="invalid-feedback">Please provide a nombre de déclaration.</div>
+                  </div>
+                  
+          
+                  
+                  <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Update Contrat</button>
+                  </div>
+                </form>
+                
+
+
+
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+      <!--end row-->
+
+
+    </div>
+    <!-- end page content-->
+   </div>
+
+
+
+  
+
+
+   <app-footer></app-footer>
+
+</div>
