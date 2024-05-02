@@ -66,6 +66,10 @@ export class UpdateContratComponent implements OnInit {
       this.contratService.updateContrat(contratId, this.contrat).subscribe(
         (data) => {
           console.log('Contrat updated successfully', data);
+          // Display success message
+          alert('Contrat updated with success');
+          // Redirect to /liste
+          window.location.href = '/liste';
         },
         (error) => {
           console.error('Failed to update contrat', error);
@@ -73,6 +77,7 @@ export class UpdateContratComponent implements OnInit {
       );
     }
   }
+  
   
   
 

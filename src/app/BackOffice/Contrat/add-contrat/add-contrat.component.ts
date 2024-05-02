@@ -41,13 +41,17 @@ export class AddContratComponent {
     this.contratService.addContrat(this.contrat).subscribe({
       next: (result) => {
         console.log('Contract added successfully:', result);
-        // Reset form fields or navigate to another page upon successful addition
+        // Display success message
+        alert('Contrat added with success');
+        // Redirect to /liste
+        window.location.href = '/liste';
       },
       error: (error) => {
         console.error('Error adding contract:', error);
       }
     });
   }
+  
   
   getSelectedServices(): string[] {
     let selectedServices: string[] = [];

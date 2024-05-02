@@ -32,6 +32,13 @@ export class ContratService {
     return this.http.put<ContratAssurance>(`${this.apiUrl}/update/${id}`, updatedContrat);
   }
 
+  saveContratsFromExcel(file: File): Observable<void> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+
+    return this.http.post<void>(`${this.apiUrl}/save-from-excel`, formData);
+  }
+
 
 
 
