@@ -15,7 +15,7 @@ interface DecodedToken {
 })
 export class AuthServiceService {
 
-  private baseUrl = 'http://localhost:9098';
+  private baseUrl = 'https://testhebergement.onrender.com';
   public currentUser: Observable<User> | undefined;
   private currentUserSubject!: BehaviorSubject<User>;
 

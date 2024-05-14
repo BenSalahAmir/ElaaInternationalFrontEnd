@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ContratService {
-  private apiUrl = 'http://localhost:9099/contrat';
+  private apiUrl = 'https://testhebergement.onrender.com/contrat';
 
   constructor(private http: HttpClient) { }
 

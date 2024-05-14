@@ -7,7 +7,7 @@ import { Reservation } from '../Models/Reservation';
   providedIn: 'root'
 })
 export class ReservationServiceService {
-  private apiUrl = 'http://localhost:9097/api/reservations';
+  private apiUrl = 'https://testhebergement.onrender.com/api/reservations';
 
   constructor(private http: HttpClient) { }
 

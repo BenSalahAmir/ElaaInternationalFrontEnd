@@ -14,17 +14,14 @@ export class SaveContratFromExelComponent {
     if (file) {
       this.contratService.saveContratsFromExcel(file).subscribe(
         () => {
-          console.log('File uploaded successfully');
+          alert('Fichier téléchargé avec succès'); // Display success message in alert
           // Optionally, you can handle success message or further actions here
         },
         error => {
-          console.error('Error uploading file:', error);
+          alert('Erreur lors du téléchargement du fichier : ' + error); // Display error message in alert
           // Optionally, you can handle error message or further actions here
         }
       );
     }
   }
-
-
-
 }
